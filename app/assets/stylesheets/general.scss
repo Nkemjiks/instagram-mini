@@ -1,0 +1,22 @@
+.avatar {
+  border-radius: 50%;
+}
+
+.dropdown-profile {
+  display: inline-block;
+}
+
+.notice, .alert {
+  padding: 0;
+  margin: 0;
+}
+
+a.logo, a.logo:hover, a.logo:focus, a.logo:visited {
+  text-decoration: none;
+  color: crimson;
+  font-size: 1.2rem;
+  
+  img {
+    border-radius: 5px;
+  }
+}

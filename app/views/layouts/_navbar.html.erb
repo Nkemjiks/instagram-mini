@@ -1,0 +1,24 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <a href="/" class="my-0 mr-md-auto font-weight-normal logo">
+    <%= image_tag "instagram.png", size: "50x50", :alt => "Logo", class: 'mr-2' %>
+    <span>Instagram</span>
+  </a>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <% if user_signed_in? %>
+      <a class="p-2 text-dark mr-4" href="#">New Post</a>
+      <div class="dropdown-profile">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= image_tag current_user.avatar.variant(resize_to_limit: [40, 40]), class: 'avatar' %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </div>
+      
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "p-2 text-dark" %>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-primary" %>
+    <% end %>
+  </nav>
+</div>
