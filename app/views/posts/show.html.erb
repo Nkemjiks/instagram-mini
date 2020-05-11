@@ -1,0 +1,21 @@
+<div class="col-8 offset-2 col-sm-6 offset-sm-3 mt-5">
+  <div class="card mb-4">
+    <div class="show-image">
+      <%= image_tag @post.image %>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><span><strong><%= @post.user.full_name %> </strong></span><%= @post.description%></p>
+      <p class="home-page-likes"><%= pluralize(@likes, 'like') %> </p>
+      <%= link_to fa_icon("heart"), post_like_path(@post), method: :post, class: is_post_liked_class(@post) %>
+    </div>
+    <div class="card-footer d-flex flex-column flex-md-row align-items-center">
+      <small class="text-muted my-0 mr-md-auto"><%= time_ago_in_words(@post.created_at) %> ago</small>
+      <div >
+        <% if user_signed_in? && current_user.id == @post.user_id %>
+          <%= link_to fa_icon("edit"), edit_post_path(@post) %> |
+          <%= link_to fa_icon("trash"), @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

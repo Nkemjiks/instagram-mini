@@ -1,0 +1,43 @@
+// Place all the styles related to the Post controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.card {
+  div.show-image {
+    height: 600px;
+
+    img {
+      height: inherit;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  .card-text {
+    color: black;
+  }
+
+  .home-page-likes {
+    color: magenta;
+  }
+
+}
+
+a.card, a.card:hover, a.card:focus, a.card:visited {
+  text-decoration: none;
+}
+
+.card-footer {
+  div {
+    display: inline-block;
+  }
+}
+
+a.delete, a.likes {
+  color: red;
+}
+
+a.unlike {
+  color: grey;
+}
+

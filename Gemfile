@@ -13,6 +13,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'image_processing'
 gem 'bootstrap', '~> 4.4.1'
+gem "font-awesome-rails"
+gem 'acts_as_votable'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do

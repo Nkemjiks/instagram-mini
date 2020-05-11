@@ -1,0 +1,22 @@
+<h2 class="text-center m-5">Posts</h2>
+<div class="col-8 offset-2 col-sm-6 offset-sm-3">
+  <% @posts.each do |post| %>
+    <a href="<%= post_path(post) %>" class="card mb-4">
+      <div class="show-image">
+        <%= image_tag post.image %>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          <span>
+            <strong><%= post.user.full_name %> </strong>
+          </span>
+          <%= post.description%>
+        </p>
+        <p class="home-page-likes"><%= pluralize(post.get_likes.size, 'like') %> </p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted"><%= time_ago_in_words(post.created_at) %> ago</small>
+      </div>
+    </a>
+  <% end %>
+</div>
