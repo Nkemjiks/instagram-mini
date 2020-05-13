@@ -6,7 +6,13 @@
     <div class="card-body">
       <p class="card-text"><span><strong><%= @post.user.full_name %> </strong></span><%= @post.description%></p>
       <p class="home-page-likes"><%= pluralize(@likes, 'like') %> </p>
-      <%= link_to fa_icon("heart"), post_like_path(@post), method: :post, class: is_post_liked_class(@post) %>
+      <%= link_to post_like_path(@post), method: :post, class: is_post_liked_class(@post) do %>
+        <% if current_user.voted_up_on? @post %>
+          <i class="fas fa-heart"></i>
+        <% else %>
+          <i class="far fa-heart"></i>
+        <% end %>
+      <% end %>
     </div>
     <div class="card-footer d-flex flex-column flex-md-row align-items-center">
       <small class="text-muted my-0 mr-md-auto"><%= time_ago_in_words(@post.created_at) %> ago</small>
